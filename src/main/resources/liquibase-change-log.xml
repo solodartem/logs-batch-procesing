@@ -1,0 +1,20 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet author="asolod" id="createTables">
+        <createTable tableName="access_logs">
+            <column name="date" type="DATETIME"/>
+            <column name="IP" type="varchar(45)"/>
+            <column name="URL" type="varchar(255)"/>
+            <column name="HTTPStatus" type="int"/>
+            <column name="client" type="varchar(255)"/>
+        </createTable>
+        <createTable tableName="blocked_ips">
+            <column name="blocking_batch_id" type="long"/>
+            <column name="IP" type="varchar(45)"/>
+            <column name="comments" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

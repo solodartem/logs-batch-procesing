@@ -1,0 +1,31 @@
+== Main goals
+
+Here it implementation of test task:
+
+The goal is to write a parser in Java that parses web server access log file, loads the log to MySQL and checks if a given IP makes more than a certain number of requests for the given duration.
+
+== How implemented
+
+Solution build on top of Java 8, Spring Framework, Spring batch.
+To implement required functionality was added required readers, processors, writes for access log data to DB
+DB structure stores as liquibase changes. This changes Spring boot automatically applies against DB on each application startup.
+
+== How to run
+
+First need to package application
+[source, bat]
+mvn package
+
+Then goto build (target) directory and start application in following way
+[source, bat]
+
+java -jar "parser.jar" com.ef.Parser --startDate=2017-01-01.13:00:00 --duration=hourly --threshold=100
+
+[NOTE]
+====
+As far application based on Spring Boot framework inplace * -cp * cli key please use * -jar * key.
+====
+
+== Summary
+
+Hope my solution looks fine J
